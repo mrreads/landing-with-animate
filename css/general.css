@@ -1,0 +1,35 @@
+*, *::after, *::before
+{
+	box-sizing: border-box;
+	margin: 0;
+    padding: 0;
+    image-rendering: pixelated;
+}
+
+.background
+{
+    z-index: 1;
+    width: 100%;
+    background-position: top center;
+    background-size: 150%;
+}
+
+.bgOne
+{
+    background-image: url('./../img/background_1.png');
+    height: 2400px;
+}
+
+.link
+{
+    left: 50%;
+    transform: translateX(-50%);
+    top: 350px;
+    position: absolute;
+    height: 80px;
+    width: 55px;
+    z-index: 5;
+    background-size: cover;
+    background-position: center;
+    background-image: url('./../img/link_walk.gif');
+}
