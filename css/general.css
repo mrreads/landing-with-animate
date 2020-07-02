@@ -8,16 +8,23 @@
 
 .background
 {
+    position: absolute;
     z-index: 1;
     width: 100%;
     background-position: top center;
     background-size: 150%;
 }
 
-.bgOne
+.bgOne, .bgOneForward
 {
     background-image: url('./../img/background_1.png');
-    height: 2400px;
+    height: 3100px;
+}
+
+.bgOneForward
+{
+    z-index: 10;
+    background-image: url('./../img/background_1_forward.png');
 }
 
 .link
@@ -30,6 +37,6 @@
     width: 55px;
     z-index: 5;
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
-    background-image: url('./../img/link_walk.gif');
 }
