@@ -38,17 +38,9 @@ new ScrollMagic.Scene(
 .addTo(controller);
 
 
-var fxOnePath = 
+var fxPath = 
 {
-    entry : {
-        curviness: 1.25,
-        autoRotate: true,
-        values: [
-                {x: 100,	y: -20},
-                {x: 300,	y: 10}
-            ]
-    },
-    looping : {
+    one : {
         curviness: 1.25,
         autoRotate: true,
         values: [
@@ -59,6 +51,14 @@ var fxOnePath =
                 {x: 500,	y: 60},
                 {x: 880,	y: 20},
                 {x: 1320,	y: 15}
+            ]
+    },
+    two : {
+        curviness: 1.25,
+        autoRotate: true,
+        values: [
+                {x: 100,	y: -20},
+                {x: 400,	y: 10}
             ]
     },
     leave : {
@@ -73,9 +73,16 @@ var fxOnePath =
 };
 
 var tween = new TimelineMax()
-.add(TweenMax.to(document.querySelector(".fxOne"), 12.2, {css:{bezier:fxOnePath.looping}, ease:Power1.easeInOut}));
-
+.add(TweenMax.to(document.querySelector(".fxOne"), 22.2, {css:{bezier:fxPath.one}, ease:Power1.easeInOut}))
 
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 800, offset: 200})
+.setTween(tween)
+.addTo(controller);
+
+
+var tween = new TimelineMax()
+.add(TweenMax.to(document.querySelector(".fxTwo"), 5, {css:{bezier:fxPath.two}, ease:Power1.easeInOut}));
+
+new ScrollMagic.Scene({triggerElement: "#trigger", duration: 300, offset: 200})
 .setTween(tween)
 .addTo(controller);

@@ -63,3 +63,10 @@ body
     top: 1000px;
     background-image: url('./../img/effects/effect_1.png');
 }
+
+.fxTwo
+{
+    left: 550px;
+    top: 900px;
+    background-image: url('./../img/effects/effect_1.png');
+}
