@@ -1,46 +1,3 @@
-function SoftScroll () {
-    var _this = this;
-    window.onmousewheel = function () { return _this.catchScroll(window.event) };
-    this.speed = 0;
-    this.current = 0;
-    this.time = 100;
-    this.direction;
-    this.timer = false;
-  }
-  SoftScroll.prototype = {
-    catchScroll: function (e) {
-      this.speed += 100;
-      if(e.wheelDelta > 0) this.direction = 'up';
-      else this.direction = 'down';
-      this.timerScroll();
-      return false;
-    },
-    timerScroll: function () {
-      _this = this;
-      if(_this.timer == true) return;
-      _this.timer = true;
-      _this.timerId = setInterval(function () {
-        var increment = Math.sqrt(_this.speed) / 2.5;
-        _this.current += increment;
-        if(_this.current > _this.speed) _this.current = _this.speed;
-        var y = -Math.pow(_this.current - _this.speed / 2, 2) / Math.pow(_this.speed / 2, 2) * increment + increment;
-        if(_this.direction == 'up') y = -y;
-        _this.doScroll(Math.floor(y));
-        if(y == 0) {
-          _this.timer = false;
-          _this.speed = 0;
-          _this.current = 0;
-          clearInterval(_this.timerId);
-        }
-      }, 10);
-    },
-    doScroll: function (scroll) {
-      document.body.scrollTop = document.body.scrollTop + scroll;
-      document.documentElement.scrollTop = document.documentElement.scrollTop + scroll;
-    }
-  }
-SoftScroll();
-
 var controller = new ScrollMagic.Controller();
 
 var imageNumber = 1;
@@ -127,14 +84,45 @@ var tween = new TimelineMax()
 .add(TweenMax.to(document.querySelector(".fxTwo"), 5, {css:{bezier:fxPath.two}, ease:Power1.easeInOut}));
 
 
+// ТУМАН
 var tween = new TimelineMax()
-    .add([
-        TweenMax.fromTo(".fog", 1, {scale: 1, autoAlpha: 1, top: -550}, {top: 2500, ease: Linear.easeNone}),
-    ]);
+.add([TweenMax.fromTo(".fog", 1, {scale: 1, autoAlpha: 1, top: -550}, {top: 2500, ease: Linear.easeNone}),]);
 
-    var parallaxScene = new ScrollMagic.Scene({
-        triggerElement: "#trigger",
-        duration: 2500
-    })
-    .setTween(tween)
-    .addTo(controller);
+var parallaxScene = new ScrollMagic.Scene({
+    triggerElement: "#trigger",
+    duration: 2500
+})
+.setTween(tween)
+.addTo(controller);
+
+
+// БЕЛЫЙ ТЕКСТ
+var tween = new TimelineMax()
+.add([TweenMax.fromTo(".text", 1, {scale: 1, autoAlpha: 1, top: 200}, {top: 900, ease: Linear.easeNone}),])
+var parallaxScene = new ScrollMagic.Scene({
+    triggerElement: "#trigger",
+    duration: 500
+})
+.setTween(tween)
+.addTo(controller);
+
+// ЧЕРНЫЙ ТЕКСТ
+var tween = new TimelineMax()
+.add([TweenMax.fromTo(".textBlack", 1, {scale: 1, autoAlpha: 1, top: -200}, {top: 910, ease: Linear.easeNone}),])
+var parallaxScene = new ScrollMagic.Scene({
+    triggerElement: "#trigger",
+    duration: 500
+})
+.setTween(tween)
+.addTo(controller);
+
+
+
+// TEXT SCALE
+var tween = TweenMax.to(".textAnim", 1, {scale: 2, ease: Linear.easeNone})
+var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 300})
+.setTween(tween)
+.addTo(controller);
+tween.progress(0)
+tween.updateTo(params, true);
+scene.setTween(tween);
