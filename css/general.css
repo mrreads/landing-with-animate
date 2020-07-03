@@ -6,6 +6,11 @@
     image-rendering: pixelated;
 }
 
+body
+{
+    overflow-x: hidden;
+}
+
 .background
 {
     position: absolute;
@@ -39,4 +44,22 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.effect
+{
+    position: absolute;
+    z-index: 15;
+    min-height: 70px;
+    min-width: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.fxOne
+{
+    left: 350px;
+    top: 1000px;
+    background-image: url('./../img/effects/effect_1.png');
 }
