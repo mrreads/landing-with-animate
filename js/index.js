@@ -101,7 +101,7 @@ var parallaxScene = new ScrollMagic.Scene({
 
 // БЕЛЫЙ ТЕКСТ
 var tween = new TimelineMax()
-.add([TweenMax.fromTo(".text", 1, {scale: 1, autoAlpha: 1, top: 200}, {top: 900, ease: Linear.easeNone}),])
+.add([TweenMax.fromTo(".text", 1, {opacity: 0, scale: 1, autoAlpha: 1, top: 200}, {opacity: 1, top: 900, ease: Linear.easeNone}),])
 var parallaxScene = new ScrollMagic.Scene({
     triggerElement: "#trigger",
     duration: 500
@@ -111,7 +111,7 @@ var parallaxScene = new ScrollMagic.Scene({
 
 // ЧЕРНЫЙ ТЕКСТ
 var tween = new TimelineMax()
-.add([TweenMax.fromTo(".textBlack", 1, {scale: 1, autoAlpha: 1, top: -200}, {top: 910, ease: Linear.easeNone}),])
+.add([TweenMax.fromTo(".textBlack", 1, {scale: 1, autoAlpha: 1, top: -400}, {top: 910, ease: Linear.easeNone}),])
 var parallaxScene = new ScrollMagic.Scene({
     triggerElement: "#trigger",
     duration: 500
