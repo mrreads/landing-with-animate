@@ -4,6 +4,14 @@
 	margin: 0;
 	padding: 0;
 
+	-ms-interpolation-mode: nearest-neighbor;
+
+	image-rendering: optimizeSpeed;
+	image-rendering: -moz-crisp-edges;
+	image-rendering:   -o-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering:         optimize-contrast;
+	image-rendering:      crisp-edges;
 	image-rendering: pixelated;
 }
 
@@ -69,7 +77,7 @@ body
 
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: contain;
+    background-size: contain;
 }
 
 .fxOne

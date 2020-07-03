@@ -72,17 +72,20 @@ var fxPath =
     }
 };
 
+// FX ANIMATION
 var tween = new TimelineMax()
 .add(TweenMax.to(document.querySelector(".fxOne"), 22.2, {css:{bezier:fxPath.one}, ease:Power1.easeInOut}))
 
-new ScrollMagic.Scene({triggerElement: "#trigger", duration: 800, offset: 200})
+new ScrollMagic.Scene({triggerElement: "#wrapper", duration: 1300, offset: 600})
 .setTween(tween)
 .addTo(controller);
 
 
 var tween = new TimelineMax()
 .add(TweenMax.to(document.querySelector(".fxTwo"), 5, {css:{bezier:fxPath.two}, ease:Power1.easeInOut}));
-
+new ScrollMagic.Scene({triggerElement: "#wrapper", duration: 800, offset: 400})
+.setTween(tween)
+.addTo(controller);
 
 // ТУМАН
 var tween = new TimelineMax()
